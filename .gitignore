@@ -1,32 +1,38 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+#include <bits/stdc++.h>
+using namespace std;
+int sum_of_two_Prime(int i);
+int main()
+{
+	int n;
+	cout << "Enter a positive integer: ";
+	int flag = 0;
+	for (int i = 2; i <= n / 2; i++)
+	{
+		if (sum_of_two_Prime(i))
+		{
+			if (sum_of_two_Prime(i - 1))
+			{
+				cout << n << " = " << i << " + " << i + 1 << endl;
+				flag = 1;
+			}
+		}
+	}
+	if (flag == 0)
+	{
+		cout << "Cannot be expressed as the sum of two prime numbers." << endl;
+	}
+	return 0;
+}
+int sum_of_two_Prime(int n)
+{
+	int prime = 1;
+	for (int i = 2; i <= n / 2; i++)
+	{
+		if (i % 2 == 0)
+		{
+			prime = 0;
+			break;
+		}
+	}
+	return prime;
+}
